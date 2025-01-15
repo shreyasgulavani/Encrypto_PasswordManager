@@ -203,7 +203,6 @@ def password_manager():
     email = session.get('email')
     name = session.get('name')
 
-
     if "email" in session:
         if request.method=="POST":
             app_name = request.form['application']
@@ -220,17 +219,8 @@ def password_manager():
 
             data = cur.fetchall()
 
-            # for saved in saved_passwords_data:
-
-            #     count=1
-            #     if app_name.upper() == saved[0] :
-            #         count = count+1
-            #         app_name = app_name + "(" + "{}".format(count) + ")"
-
-
             for user_data in data:
                 id = user_data[0]
-
 
             key = load_key()
             encrypt_key = Fernet(key)
